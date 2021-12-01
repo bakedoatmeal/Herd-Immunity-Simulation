@@ -1,0 +1,35 @@
+------------------------------- 
+Initializing covid Simulation! 
+Population size: 1000 people, Percent vaccinated: 10.0%
+Virus mortality rate: 0.5, Reproduction rate: 0.9 
+-------------------------------- 
+
+---------------------END OF TIME STEP---------------------------- 
+Time step 1 ended. Analyzing data: 
+Number of people infected during this time step: 375 
+Number of people dead during this time step: 3 
+Number of people who survived the infection and are now vaccinated: 3 
+Population size: 1000, Total Dead: 3, Total vaccinated: 103, Total infected: 375
+----------------------------------------------------------------- 
+
+
+---------------------END OF TIME STEP---------------------------- 
+Time step 2 ended. Analyzing data: 
+Number of people infected during this time step: 519 
+Number of people dead during this time step: 187 
+Number of people who survived the infection and are now vaccinated: 188 
+Population size: 1000, Total Dead: 190, Total vaccinated: 291, Total infected: 519
+----------------------------------------------------------------- 
+
+
+---------------------END OF TIME STEP---------------------------- 
+Time step 3 ended. Analyzing data: 
+Number of people infected during this time step: 0 
+Number of people dead during this time step: 270 
+Number of people who survived the infection and are now vaccinated: 249 
+Population size: 1000, Total Dead: 460, Total vaccinated: 540, Total infected: 0
+----------------------------------------------------------------- 
+
+
+--------------------END OF SIMULATION---------------------------- 
+The simulation is ending because everyone is vaccinated or dead

@@ -17,16 +17,20 @@ class Logger(object):
         The simulation class should use this method immediately to log the specific
         parameters of the simulation as the first line of the file.
         '''
-        # TODO: Finish this method. This line of metadata should be tab-delimited
-        # it should create the text file that we will store all logs in.
+
+        outfile = open(self.file_name, "w")
+        outfile.write("------------------------------- \n")
+        outfile.write(f"Initializing {virus_name} Simulation! \n")
+        outfile.write(f"Population size: {pop_size} people, Percent vaccinated: {vacc_percentage * 100}%\n")
+        outfile.write(f"Virus mortality rate: {mortality_rate}, Reproduction rate: {basic_repro_num} \n")
+        outfile.write("-------------------------------- \n")
+        outfile.close()
         # TIP: Use 'w' mode when you open the file. For all other methods, use
-        # the 'a' mode to append a new log to the end, since 'w' overwrites the file.
-        # NOTE: Make sure to end every line with a '/n' character to ensure that each
-        # event logged ends up on a separate line!
-        pass
+        # the 'a' mode to append a new log to the end, since 'w' overwrites the file
+        
 
     def log_interaction(self, person, random_person, random_person_sick=None,
-                        random_person_vacc=None, did_infect=None):
+                        random_person_vacc=False, did_infect=False, newly_infected=False):
         '''
         The Simulation object should use this method to log every interaction
         a sick person has during each time step.
@@ -40,7 +44,18 @@ class Logger(object):
         # represent all the possible edge cases. Use the values passed along with each person,
         # along with whether they are sick or vaccinated when they interact to determine
         # exactly what happened in the interaction and create a String, and write to your logfile.
-        pass
+        outfile = open(self.file_name, "a")
+        if did_infect:
+            outfile.write(f"{person._id} infected {random_person._id} \n")
+        elif random_person_vacc is True: 
+            outfile.write(f"{person._id} did not infect {random_person._id} because they are vaccinated \n")
+        elif random_person_sick is not None: 
+            outfile.write(f"{person._id} did not infect {random_person._id} because they were already sick \n")
+        elif newly_infected:
+            outfile.write(f"{person._id} did not infect {random_person._id} because they just got infected \n")
+        else: 
+            outfile.write(f"{person._id} did not infect {random_person._id} \n")
+        outfile.close()
 
     def log_infection_survival(self, person, did_die_from_infection):
         ''' The Simulation object uses this method to log the results of every
@@ -52,9 +67,16 @@ class Logger(object):
         # TODO: Finish this method. If the person survives, did_die_from_infection
         # should be False.  Otherwise, did_die_from_infection should be True.
         # Append the results of the infection to the logfile
-        pass
+        outfile = open(self.file_name, "a")
+        outfile.write("-------------------CHECKING SURVIVAL----------------------------- \n")
+        if did_die_from_infection:
+            outfile.write(f"{person._id} died from infection \n")
+        else: 
+            outfile.write(f"{person._id} survived the infection \n")
+        outfile.write("----------------------------------------------------------------- \n")
+        outfile.close()
 
-    def log_time_step(self, time_step_number):
+    def log_time_step(self, time_step_number, dead_this_round, newly_vaccinated, current_infected, total_dead, pop_size, vaccinated):
         ''' STRETCH CHALLENGE DETAILS:
 
         If you choose to extend this method, the format of the summary statistics logged
@@ -65,11 +87,32 @@ class Logger(object):
             The number of people that died on this specific time step.
             The total number of people infected in the population, including the newly infected
             The total number of dead, including those that died during this time step.
+            Total number living people, total number of vaccinated people
 
         The format of this log should be:
             "Time step {time_step_number} ended, beginning {time_step_number + 1}\n"
         '''
         # TODO: Finish this method. This method should log when a time step ends, and a
         # new one begins.
-        # NOTE: Here is an opportunity for a stretch challenge!
-        pass
+        outfile = open(self.file_name, "a")
+        outfile.write("\n")
+        outfile.write("---------------------END OF TIME STEP---------------------------- \n")
+        outfile.write(f"Time step {time_step_number} ended. Analyzing data: \n")
+        outfile.write(f"Number of people infected during this time step: {current_infected} \n")
+        outfile.write(f"Number of people dead during this time step: {dead_this_round} \n")
+        outfile.write(f"Number of people who survived the infection and are now vaccinated: {newly_vaccinated} \n")
+        outfile.write(f"Population size: {pop_size}, Total Dead: {total_dead}, Total vaccinated: {vaccinated}, Total infected: {current_infected}\n")
+        outfile.write("----------------------------------------------------------------- \n")
+        outfile.write("\n")
+        outfile.close()
+
+
+    def endLog(self, message):
+        outfile = open(self.file_name, "a")
+        outfile.write("\n")
+        outfile.write("--------------------END OF SIMULATION---------------------------- \n")
+        outfile.write(message)
+        outfile.write("\n")
+        outfile.close()
+
+
