@@ -1,33 +1,42 @@
 ------------------------------- 
 Initializing covid Simulation! 
-Population size: 1000 people, Percent vaccinated: 10.0%
+Population size: 10000 people, Percent vaccinated: 10.0%
 Virus mortality rate: 0.5, Reproduction rate: 0.9 
 -------------------------------- 
 
 ---------------------END OF TIME STEP---------------------------- 
 Time step 1 ended. Analyzing data: 
-Number of people infected during this time step: 375 
-Number of people dead during this time step: 3 
-Number of people who survived the infection and are now vaccinated: 3 
-Population size: 1000, Total Dead: 3, Total vaccinated: 103, Total infected: 375
+Number of people infected during this time step: 472 
+Number of people dead during this time step: 4 
+Number of people who survived the infection and are now vaccinated: 2 
+Population size: 10000, Total Dead: 4, Total vaccinated: 1002, Total infected: 472
 ----------------------------------------------------------------- 
 
 
 ---------------------END OF TIME STEP---------------------------- 
 Time step 2 ended. Analyzing data: 
-Number of people infected during this time step: 519 
-Number of people dead during this time step: 187 
-Number of people who survived the infection and are now vaccinated: 188 
-Population size: 1000, Total Dead: 190, Total vaccinated: 291, Total infected: 519
+Number of people infected during this time step: 8404 
+Number of people dead during this time step: 254 
+Number of people who survived the infection and are now vaccinated: 218 
+Population size: 10000, Total Dead: 258, Total vaccinated: 1220, Total infected: 8404
 ----------------------------------------------------------------- 
 
 
 ---------------------END OF TIME STEP---------------------------- 
 Time step 3 ended. Analyzing data: 
+Number of people infected during this time step: 118 
+Number of people dead during this time step: 4180 
+Number of people who survived the infection and are now vaccinated: 4224 
+Population size: 10000, Total Dead: 4438, Total vaccinated: 5444, Total infected: 118
+----------------------------------------------------------------- 
+
+
+---------------------END OF TIME STEP---------------------------- 
+Time step 4 ended. Analyzing data: 
 Number of people infected during this time step: 0 
-Number of people dead during this time step: 270 
-Number of people who survived the infection and are now vaccinated: 249 
-Population size: 1000, Total Dead: 460, Total vaccinated: 540, Total infected: 0
+Number of people dead during this time step: 58 
+Number of people who survived the infection and are now vaccinated: 60 
+Population size: 10000, Total Dead: 4496, Total vaccinated: 5504, Total infected: 0
 ----------------------------------------------------------------- 
 
 
